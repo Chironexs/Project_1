@@ -13,7 +13,7 @@ namespace AplikacjaKonsolowa
         public static void AddTask()
         {
             ConsoleEx.WriteLine("Podaj opis zadania:", ConsoleColor.Green);
-            var description = IsRequierd();
+            var description = IsRequired();
 
             ConsoleEx.WriteLine("Czy zadanie jest całodniowe - Y/N", ConsoleColor.Green);
             var allDayTask = TrueOrFalse();
@@ -53,8 +53,7 @@ namespace AplikacjaKonsolowa
             {
                 string start = Console.ReadLine();
                 var patternDate = DateTime.Parse(DateTime.Now.ToString("yyyy-MM-dd HH:mm"));
-                if (DateTime.TryParseExact(start, "yyyy-MM-dd HH:mm", CultureInfo.InvariantCulture, DateTimeStyles.None,
-                    out patternDate))
+                if (DateTime.TryParseExact(start, "yyyy-MM-dd HH:mm", CultureInfo.InvariantCulture, DateTimeStyles.None, out patternDate))
                 {
                     return DateTime.Parse(start);
                 }
@@ -63,7 +62,7 @@ namespace AplikacjaKonsolowa
             }
         }
 
-        private static string IsRequierd()
+        private static string IsRequired()
         {
             while (true)
             {
@@ -77,7 +76,7 @@ namespace AplikacjaKonsolowa
             }
         }
 
-        private static bool IsRequierd1()
+        private static bool IsRequired1()
         {
             while (true)
             {
@@ -90,11 +89,11 @@ namespace AplikacjaKonsolowa
                 ConsoleEx.RequierdField();
             }
         }
-        public static void RemoweTask()
+        public static void RemoveTask()
         {
             ShowTasks();
             ConsoleEx.WriteLine("Wybierz lp. zadania do usunięcia:", ConsoleColor.Green);
-            var result = IsRequierd();
+            var result = IsRequired();
             int patternRemove = 0;
             if (Int32.TryParse(result, out patternRemove))
             {
@@ -190,8 +189,7 @@ namespace AplikacjaKonsolowa
                     DateTime? endDate;
                     //bool allDayTask;
                     var patternDate = DateTime.Parse(DateTime.Now.ToString("dd.MM.yyyy HH:mm:ss"));
-                    if (DateTime.TryParseExact(textTable2, "dd.MM.yyyy HH:mm:ss", CultureInfo.InvariantCulture,
-                        DateTimeStyles.None, out patternDate))
+                    if (DateTime.TryParseExact(textTable2, "dd.MM.yyyy HH:mm:ss", CultureInfo.InvariantCulture, DateTimeStyles.None, out patternDate))
                     {
                         endDate = DateTime.Parse(textTable2);
                         //allDayTask = false;
@@ -222,8 +220,7 @@ namespace AplikacjaKonsolowa
                         allDayTask = false;
                     }
 
-                    TaskModel task = new TaskModel(textTable[0], DateTime.Parse(textTable[1]), endDate, allDayTask,
-                        importantTask);
+                    TaskModel task = new TaskModel(textTable[0], DateTime.Parse(textTable[1]), endDate, allDayTask, importantTask);
                     listTaskModel.Add(task);
                 }
 

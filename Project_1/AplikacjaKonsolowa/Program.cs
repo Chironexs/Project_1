@@ -19,7 +19,7 @@ namespace AplikacjaKonsolowa
 
                 if (command == "remove")
                 {
-                    Task.RemoweTask();
+                    Task.RemoveTask();
                 }
 
                 if (command == "show")
